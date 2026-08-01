@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Estudio de Agrimensura | INA</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-...your-integrity..."
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <a href="#inicio" class="logo">INA</a>
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero-section">
+        <div class="hero-content">
+          <div class="hero-logo">
+            <img src="./assets/images/logo.jpeg" alt="INA - Estudio de Agrimensura Logo" />
+          </div>
+          <div class="hero-copy">
+            <h1>Estudio de Agrimensura</h1>
+            <p>Brindamos soluciones técnicas, legales y precisas para proyectos urbanos, rurales y comerciales.</p>
+            <a href="#contacto" class="button">Solicitar consulta</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="nosotros" class="content-section">
+        <div class="section-badge">Nosotros</div>
+        <p>Somos un equipo de agrimensores dedicados a brindar soluciones técnicas y legales para proyectos de todo tipo. Nuestro compromiso es la precisión, la calidad y la satisfacción de nuestros clientes. Prestamos servicios tanto en la ciudad de <strong>La Plata</strong> como en <strong>San Carlos de Bolivar</strong>.</p>
+      </section>
+
+      <section id="servicios" class="content-section">
+        <div class="section-badge">Servicios</div>
+        <p>Ofrecemos una gama completa de servicios profesionales de agrimensura, adaptados a proyectos urbanos, rurales y comerciales.</p>
+
+        <div class="servicios-grid">
+          <article class="servicio-card">
+            <img src="./assets/images/propiedad-horizontal.png" alt="Propiedad horizontal">
+            <h3>Propiedad horizontal</h3>
+            <p>Los planos sujetos al régimen de PH modifican la idea de verticalidad en la propiedad privada, permitiendo la creación de unidades en distintos niveles.</p>
+          </article>
+          <article class="servicio-card">
+            <img src="./assets/images/mensura.jpg" alt="Mensura">
+            <h3>Mensura</h3>
+            <p>La mensura es una determinación, medición, ubicación y documentación en un plano de los inmuebles y sus límites conforme a las causas jurídicas que los originan.</p>
+          </article>
+          <article class="servicio-card">
+            <img src="./assets/images/estado-parcelario.png" alt="Estado Parcelario">
+            <h3>Estado Parcelario</h3>
+            <p>Realizamos la constitución o verificación del estado parcelario según la Ley 10.707, garantizando seguridad jurídica en la transmisión de inmuebles.</p>
+          </article>
+          <article class="servicio-card">
+            <img src="./assets/images/instrumento-agrimensura.jpg" alt="Otro servicios">
+            <h3>Otros servicios</h3>
+            <p>Brindamos asesoramiento y documentación complementaria para distintos tipos de proyectos y trámites.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contacto" class="content-section">
+        <div class="contact-info">
+          <div class="section-badge">Contacto</div>
+          <p><i class="fas fa-phone"></i> Teléfono: <a href="tel:+number">+InsertarNumero</a></p>
+          <p><i class="fas fa-envelope"></i> Email: <a href="mailto:contacto@agrimensura.com">InsertarEmail@....com</a></p>
+          <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/InsertarNumero" target="_blank">WhatsApp</a></p>
+          <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/InsertarInstagram" target="_blank">@InsertarInstagram</a></p>
+          <p class="contact-note">Estamos a tu disposición para consultas, presupuestos y asesoramiento técnico.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="social-links">
+        <a href="https://wa.me/InsertarNumero" target="_blank" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp fa-2x"></i>
+        </a>
+        <a href="https://instagram.com/InsertarInstagram" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram fa-2x"></i>
+        </a>
+      </div>
+      <p>&copy; 2025 Estudio de Agrimensura. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.querySelectorAll('nav a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const targetId = link.getAttribute('href');
+        const target = document.querySelector(targetId);
+
+        if (target) {
+          event.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
