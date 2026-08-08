@@ -89,6 +89,14 @@
           <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/542215247331" target="_blank">2215247331</a></p>
           <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/agrimensuraina" target="_blank">@agrimensuraina</a></p>
         </div>
+          <!-- Contact form that redirects to WhatsApp -->
+          <form id="contactForm" class="contact-form" aria-label="Formulario de contacto">
+            <label for="name">Nombre</label>
+              <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+            <label for="message">Mensaje</label>
+            <textarea id="message" name="message" rows="4" placeholder="Escribe tu consulta" required></textarea>
+            <button type="submit" class="button">Enviar por WhatsApp</button>
+          </form>
       </section>
     </main>
 
@@ -117,6 +125,40 @@
         }
       });
     });
+
+    // WhatsApp redirect for contact form
+    (function() {
+      const form = document.getElementById('contactForm');
+      if (!form) return;
+
+        form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = (document.getElementById('name') && document.getElementById('name').value || '').trim();
+        const message = (document.getElementById('message') && document.getElementById('message').value || '').trim();
+
+        // Ensure required fields
+        if (!name || !message) {
+          alert('Por favor completa tu nombre y mensaje.');
+          return;
+        }
+
+        // Encode text replacing spaces with '+' to match requested format
+        function plusEncode(str) {
+          // encode and replace spaces/newlines with '+' for wa.me path
+          return encodeURIComponent(str).replace(/%20|%0A|%0D/g, '+');
+        }
+
+        const nameEnc = plusEncode(name);
+        const msgEnc = plusEncode(message);
+
+        // Build URL in the exact requested pattern
+        const url = `https://wa.me/542215247331?text=Holai+nombre+es+${nameEnc}+.+Mi+consulta+${msgEnc}`;
+
+        // Redirect the user to WhatsApp
+        window.location.href = url;
+      });
+    })();
   </script>
 </body>
 </html>

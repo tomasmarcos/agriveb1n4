@@ -268,6 +268,42 @@ li {
   font-weight: 600;
 }
 
+/* Contact form styles */
+.contact-form {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.6rem;
+  background: var(--servicios-card-color);
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+.contact-form label {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 0.95rem;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form textarea {
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid rgba(47,69,71,0.12);
+  font-size: 1rem;
+  outline: none;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form .button {
+  width: fit-content;
+  padding: 0.6rem 1rem;
+}
+
 footer {
   margin-top: auto;
   padding: 1.5rem;
