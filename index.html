@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Estudio de Agrimensura | INA</title>
-  <link rel="icon" href="./assets/images/logo9.jpeg" type="image/jpeg" />
-  <link rel="apple-touch-icon" href="/assets/images/logo9.jpeg" />
+  <link rel="icon" href="./assets/images/favicon.png" type="image/jpeg" />
+  <link rel="apple-touch-icon" href="/assets/images/favicon.png" />
   <link rel="stylesheet" href="css/styles.css" />
   <link
     rel="stylesheet"
@@ -145,17 +145,19 @@
           return;
         }
 
-        // Encode text replacing spaces with '+' to match requested format
+        // Encode text while preserving newlines in the WhatsApp message
         function plusEncode(str) {
-          // encode and replace spaces/newlines with '+' for wa.me path
-          return encodeURIComponent(str).replace(/%20|%0A|%0D/g, '+');
+          return encodeURIComponent(str).replace(/%20/g, '+');
         }
 
         const nameEnc = plusEncode(name);
         const msgEnc = plusEncode(message);
 
+        const text = `Hola mi nombre es ${name}.\n\nMi consulta es: ${message}`;
+        const textEnc = encodeURIComponent(text).replace(/%20/g, '+');
+
         // Build URL in the exact requested pattern
-        const url = `https://wa.me/542215247331?text=Holai+nombre+es+${nameEnc}+.+Mi+consulta+${msgEnc}`;
+        const url = `https://wa.me/542215247331?text=${textEnc}`;
 
         // Redirect the user to WhatsApp
         window.location.href = url;
