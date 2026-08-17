@@ -37,7 +37,7 @@ body {
   background-color: rgba(230, 229, 216, 0.96);
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   border-radius: 0;
   box-shadow: 0 10px 30px rgba(58, 70, 54, 0.08);
@@ -45,6 +45,7 @@ body {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(8px);
+  gap: 0.5rem;
 }
 
 .logo {
@@ -59,6 +60,7 @@ nav {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
+  margin-left: auto;
 }
 
 nav a {
@@ -204,16 +206,17 @@ li {
 }
 
 .section-badge {
-  display: inline-block;
-  margin-bottom: 0.75rem;
-  padding: 0.45rem 1rem;
-  border-radius: 999px;
-  background-color: var(--header-color);
+  display: block;
+  margin-bottom: 0.6rem;
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
   color: var(--primary-color);
-  font-size: 1rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.5px;
+  font-family: inherit;
 }
 
 .servicios-grid {
@@ -224,17 +227,18 @@ li {
 }
 
 .servicio-card {
-  background: var(--servicios-card-color);
+  background: rgba(255,255,255,0.96);
   border-radius: var(--rounded);
-  box-shadow: 0 4px 16px rgba(58, 70, 54, 0.08);
-  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(31,41,36,0.04);
+  padding: 1.1rem;
   text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid rgba(47,69,71,0.04);
 }
 
 .servicio-card:hover {
   transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 8px 32px rgba(58, 70, 54, 0.15);
+  box-shadow: 0 8px 20px rgba(31,41,36,0.06);
 }
 
 .servicio-card img {
@@ -252,15 +256,31 @@ li {
 }
 
 .contact-card {
-  background: var(--servicios-card-color);
-  border-radius: var(--rounded);
-  box-shadow: 0 4px 16px rgba(58, 70, 54, 0.08);
-  padding: 1.25rem;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0.5rem 0;
   margin-top: 1rem;
+  border: none;
 }
 
 .contact-card p {
   margin-bottom: 0.75rem;
+}
+
+.contact-name {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.6rem;
+  font-size: 1.02rem;
+}
+
+.contact-name i {
+  font-size: 1.12rem;
+  color: var(--primary-color);
 }
 
 #nosotros p {
@@ -278,9 +298,12 @@ li {
   margin-top: 1rem;
   display: grid;
   gap: 0.6rem;
-  background: var(--servicios-card-color);
-  padding: 1rem;
+  background: linear-gradient(180deg, rgba(246,244,238,0.98), rgba(255,255,255,0.92));
+  padding: 1.1rem;
   border-radius: 12px;
+  border: 1px solid rgba(47,69,71,0.06);
+  box-shadow: 0 6px 20px rgba(31,41,36,0.06);
+  backdrop-filter: blur(2px);
 }
 
 .contact-form label {
@@ -340,7 +363,6 @@ footer {
 
 @media (max-width: 768px) {
   .site-header {
-    flex-direction: column;
     gap: 0.75rem;
   }
 
@@ -358,5 +380,40 @@ footer {
 
   .hero-copy {
     text-align: left;
+  }
+}
+/* DESKTOP — hamburger hidden */
+.menu-toggle {
+  display: none;
+}
+
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  .site-header nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: white;
+    padding: 0.75rem 0;
+    z-index: 1000;
+  }
+
+  .site-header nav.active {
+    display: flex;
   }
 }

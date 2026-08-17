@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Estudio de Agrimensura | INA</title>
+  <title>Agrimensura INA</title>
   <link rel="icon" href="./assets/images/favicon.png" type="image/jpeg" />
   <link rel="apple-touch-icon" href="/assets/images/favicon.png" />
   <link rel="stylesheet" href="css/styles.css" />
@@ -18,13 +18,18 @@
 <body>
   <div class="app-container">
     <header class="site-header">
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+        <i class="fas fa-bars"></i>
+      </button>
       <a href="#inicio" class="logo">INA</a>
-      <nav>
+
+      <nav id="mainNav">
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Servicios</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#contacto">Contacto</a>
       </nav>
+    </header>
     </header>
 
     <main>
@@ -80,7 +85,7 @@
             <p>Relevamiento y control topográfico planialtimetrico durante las distintas etapas de la obra conforme al proyecto.</p>
           </article>
           <article class="servicio-card">
-            <img src="./assets/images/agregar.png" alt="Planos de mensura">
+            <img src="./assets/images/planos-mensura.png" alt="Planos de mensura">
             <h3>Planos de mensura</h3>
             <p>Representación gráfica y legal de los límites de un inmueble, elaborada a partir de la mensura realizada en el terreno, con validez ante los organismos catastrales y registrales.</p>
           </article>
@@ -99,7 +104,7 @@
         <p>En INA Agrimensura brindamos servicios de agrimensura y topografía para particulares, empresas y profesionales de la construcción, acompañando cada proyecto desde la consulta inicial hasta su finalización.</p>
         <p style="margin-top: 1rem;">Contamos con experiencia en topografía aplicada a obras públicas y en trabajos de agrimensura vinculados a propiedades urbanas y rurales. Cada trabajo es realizado por un agrimensor matriculado, priorizando el cumplimiento de la normativa vigente, la precisión en las mediciones y una comunicación clara durante todo el proceso.</p>
         <p style="margin-top: 1rem;">Desarrollamos trabajos en San Carlos de Bolívar, La Plata y localidades cercanas de la provincia de Buenos Aires, realizando mensuras, estados parcelarios, propiedad horizontal, deslindes, amojonamientos, nivelaciones y otros trabajos relacionados con la agrimensura y la topografía.</p>
-        <p style="margin-top: 1rem;">Contanos tu necesidad y te asesoraremos sin cargo.</p>
+        <p style="margin-top: 1rem;">Estamos a tu disposición para consultas, presupuestos y asesoramiento técnico sin cargo.</p>
         <div class="nosotros-miniaturas" style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
           <img src="./assets/images/tripode.jpg" alt="Tripode" style="width: 140px; height: 100px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);" />
           <img src="./assets/images/deslinde.jpg" alt="Tripode" style="width: 140px; height: 100px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.15);" />
@@ -113,9 +118,9 @@
       <section id="contacto" class="content-section">
         <div class="section-head">
           <div class="section-badge">Contacto</div>
-          <p>Estamos a tu disposición para consultas, presupuestos y asesoramiento técnico sin cargo.</p>
         </div>
         <div class="contact-card">
+          <p class="contact-name"><i class="fas fa-user"></i> Ingeniero Agrimensor Ignacio Amuchastegui - M.P. 2859</p>
           <p><i class="fas fa-phone"></i> Teléfono: <a href="tel:+542215247331">2215247331</a></p>
           <p><i class="fas fa-envelope"></i> Email: <a href="mailto:agrimensura.ina@gmail.com">agrimensura.ina@gmail.com</a></p>
           <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/542215247331" target="_blank">2215247331</a></p>
@@ -141,7 +146,7 @@
           <i class="fab fa-instagram fa-2x"></i>
         </a>
       </div>
-      <p>&copy; 2025 Estudio de Agrimensura. Todos los derechos reservados.</p>
+      <p>&copy; 2025 INA Agrimensura. Todos los derechos reservados.</p>
     </footer>
   </div>
 
@@ -193,6 +198,29 @@
         window.location.href = url;
       });
     })();
+    // burger menu for mobile or tablets
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('active');
+
+      menuToggle.setAttribute('aria-expanded', isOpen);
+
+      menuToggle.innerHTML = isOpen
+        ? '<i class="fas fa-times"></i>'
+        : '<i class="fas fa-bars"></i>';
+    });
+
+    // Close the menu after selecting a section
+    mainNav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('active');
+
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
   </script>
 </body>
 </html>
