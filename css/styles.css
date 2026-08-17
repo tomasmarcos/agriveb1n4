@@ -37,7 +37,7 @@ body {
   background-color: rgba(230, 229, 216, 0.96);
   padding: 1rem 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   border-radius: 0;
   box-shadow: 0 10px 30px rgba(58, 70, 54, 0.08);
@@ -45,6 +45,7 @@ body {
   top: 0;
   z-index: 100;
   backdrop-filter: blur(8px);
+  gap: 0.5rem;
 }
 
 .logo {
@@ -59,6 +60,7 @@ nav {
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
+  margin-left: auto;
 }
 
 nav a {
@@ -361,7 +363,6 @@ footer {
 
 @media (max-width: 768px) {
   .site-header {
-    flex-direction: column;
     gap: 0.75rem;
   }
 
@@ -379,5 +380,40 @@ footer {
 
   .hero-copy {
     text-align: left;
+  }
+}
+/* DESKTOP — hamburger hidden */
+.menu-toggle {
+  display: none;
+}
+
+
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: inherit;
+  }
+
+  .site-header nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: white;
+    padding: 0.75rem 0;
+    z-index: 1000;
+  }
+
+  .site-header nav.active {
+    display: flex;
   }
 }
